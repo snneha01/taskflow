@@ -26,16 +26,9 @@ app.get('/api/health', (req, res) => {
   });
 });
 
-// Root route
-app.get('/', (req, res) => {
-  res.send('🚀 TaskFlow API is running!');
-});
-
-// Serve frontend for all non-API routes (SPA)
+// Serve frontend for ALL non-api routes
 app.get('*', (req, res) => {
-  if (!req.path.startsWith('/api')) {
-    res.sendFile(path.join(__dirname, '../public/index.html'));
-  }
+  res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
 // Global error handler
